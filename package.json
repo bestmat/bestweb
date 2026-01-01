@@ -1,0 +1,17 @@
+{
+  "name": "bestweb-bestmat",
+  "version": "1.0.0",
+  "description": "NagapillaiyarSai",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bestmat"
+  ],
+  "author": "Yuvanth.B",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

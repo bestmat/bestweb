@@ -4,9 +4,11 @@ console.log("NagapillaiyarSai");
 export default class BestWeb {
     constructor(wasmFile) {
 	this.wasmFile = wasmFile;
+	this.functions = {};
     }
 
     async init() {
+	let functions = {};
 	const bytes = await fetch(this.wasmFile)
 	      .then(response => response.arrayBuffer())
 	      .then(function(bytes) {
@@ -33,18 +35,17 @@ export default class BestWeb {
 			      for (let i = 0; i < valueSize; ++i) {
 				  valueStr = valueStr + String.fromCharCode(memory[value + i]);
 			      }
-			      console.log(`elementStr: ${elementStr}`);
-			      console.log(`attributeStr: ${attributeStr}`);
-			      console.log(`valueStr: ${valueStr}`);
 			      document.querySelector(elementStr).style[attributeStr] = valueStr;
 			  },
 		      }
 		  });
-		  instance.exports.add(21, 27);
+		  instance.exports._start();
+		  functions = instance.exports;
 	      });
+	this.functions = functions;
     }
 }
 
 const bestweb = new BestWeb("try.wasm");
 await bestweb.init();
-//console.log(`add(21, 27) = ${bestweb.functions.add(21, 27)}`);
+console.log(`add(21, 27) = ${bestweb.functions.add(21, 27)}`);

@@ -1,6 +1,14 @@
 // ©2026 - BestWeb - BestMat - All rights reserved
 console.log("NagapillaiyarSai");
 
+function getString(mem, ind, len) {
+    let str = "";
+    for (let i = 0; i < len; ++i) {
+	str = str + String.fromCharCode(mem[ind + i]);
+    }
+    return str;
+}
+
 export default class BestWeb {
     constructor(wasmFile) {
 	this.wasmFile = wasmFile;
@@ -19,24 +27,54 @@ export default class BestWeb {
 			      console.log(x);
 			  },
 			  memory: new WebAssembly.Memory({ initial: 3 }),
-			  setStyleAttribute: function(
-			      element, elementSize, attribute, attributeSize, value, valueSize
+			  setStyleJS: function(
+			      element, elementSize,
+			      attribute, attributeSize,
+			      value, valueSize
 			  ) {
 			      const memory = new Int8Array(instance.exports.memory.buffer);
-			      let   elementStr = "";
-			      let   attributeStr = "";
-			      let   valueStr = "";
-			      for (let i = 0; i < elementSize; ++i) {
-				  elementStr = elementStr + String.fromCharCode(memory[element + i]);
-			      }
-			      for (let i = 0; i < attributeSize; ++i) {
-				  attributeStr = attributeStr + String.fromCharCode(memory[attribute + i]);
-			      }
-			      for (let i = 0; i < valueSize; ++i) {
-				  valueStr = valueStr + String.fromCharCode(memory[value + i]);
-			      }
+			      let elementStr = getString(memory, element, elementSize);
+			      let attributeStr = getString(memory, attribute, attributeSize);
+			      let valueStr = getString(memory, value, valueSize);
 			      document.querySelector(elementStr).style[attributeStr] = valueStr;
 			  },
+			  setPropertyJS: function(
+			      element, elementSize,
+			      property, propertySize,
+			      value, valueSize
+			  ) {
+			      const memory = new Int8Array(instance.exports.memory.buffer);
+			      let elementStr = getString(memory, element, elementSize);
+			      let propertyStr = getString(memory, property, propertySize);
+			      let valueStr = getString(memory, value, valueSize);
+			      document.querySelector(elementStr)[propertyStr] = valueStr;
+			  },
+			  createElementJS: function(
+			      element, elementSize,
+			      selector, selectorSize,
+			      content, contentSize,
+			      parent, parentSize
+			  ) {
+			      const memory = new Int8Array(instance.exports.memory.buffer);
+			      let elementStr = getString(memory, element, elementSize);
+			      let selectorStr = getString(memory, selector, selectorSize);
+			      let contentStr = getString(memory, content, contentSize);
+			      let parentStr = getString(memory, parent, parentSize);
+			      const htmlElement = document.createElement(elementStr);
+			      if (selectorStr[0] === '.') {
+				  htmlElement.className = selectorStr.slice(1);
+			      } else if (selectorStr[0] === '#') {
+				  htmlElement.id = selectorStr.slice(1);
+			      }
+			      if (contentSize !== 0) {
+				  htmlElement.innerText = contentStr;
+			      }
+			      if (parentSize === 0) {
+				  document.body.appendChild(htmlElement);
+			      } else {
+				  document.querySelector(parentStr).appendChild(htmlElement);
+			      }
+			  }
 		      }
 		  });
 		  instance.exports._start();

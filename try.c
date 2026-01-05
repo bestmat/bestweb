@@ -29,6 +29,8 @@ void createElement(const char *element, const char *selector, const char *conten
 
 void _start() {
     // document.querySelector("h1").style.color = "red";
+    setStyle("body", "fontFamily", "Comic Sans MS");
     setStyle("h1", "background", "red");
-    createElement("h1", ".c", "Hello, World!", "body");
+    createElement("center", "#center", "", "body");
+    createElement("h1", ".c", "Hello, World!", "#center");
 }

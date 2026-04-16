@@ -66,4 +66,4 @@ Open the `index.html` file in a web browser.
 This project is licensed under **[MIT License](https://github.com/BestMat/BestWeb/LICENSE)**.
 Goto `LICENSE` or click on the link for more information.
 
-All contributions are welcome! Please fork the repository, make your changes and raise a [pull request](github.com/BestMat/BestWeb/pulls)!
+All contributions are welcome! Please fork the repository, make your changes and raise a [pull request](https://github.com/BestMat/BestWeb/pulls)!

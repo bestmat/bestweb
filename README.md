@@ -63,7 +63,7 @@ Open the `index.html` file in a web browser.
 3. [Github (wasm): WebAssembly Binary Toolkit](https://github.com/webassembly/wabt)
 
 ## License & Contribution
-This project is licensed under **[MIT License](https://github.com/BestMat/BestWeb/blob/main/LICENSE)**.
+This project is licensed under MIT License.
 Goto `LICENSE` or click on the link for more information.
 
 All contributions are welcome! Please fork the repository, make your changes and raise a [pull request](https://github.com/BestMat/BestWeb/pulls)!

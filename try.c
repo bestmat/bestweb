@@ -30,7 +30,15 @@ void createElement(const char *element, const char *selector, const char *conten
 void _start() {
     // document.querySelector("h1").style.color = "red";
     setStyle("body", "fontFamily", "Comic Sans MS");
-    setStyle("h1", "background", "red");
-    createElement("center", "#center", "", "body");
-    createElement("h1", ".c", "Hello, World!", "#center");
+    setStyle("body", "display", "flex");
+    setStyle("body", "justifyContent", "center");
+    setStyle("body", "flexDirection", "column");
+    setStyle("body", "height", "100vh");
+    setStyle("body", "background", "dodgerblue");
+
+    setStyle("h1", "background", "white");
+    setStyle("h1", "textAlign", "center");
+    setStyle("img", "width", "100px");
+    createElement("h1", ".c", "Hello World from C!", "div");
+    setStyle(".c", "color", "white");
 }

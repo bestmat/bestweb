@@ -30,6 +30,7 @@ flags = [
     "-O3",
     "-flto",
     "-nostdlib",
+    "-fno-builtin",
     "-Wl,--no-entry",
     "-Wl,--export-all",
     "-Wl,--lto-O3",

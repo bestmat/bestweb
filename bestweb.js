@@ -1,6 +1,4 @@
 // ©2026 - BestWeb - BestMat - All rights reserved
-console.log("NagapillaiyarSai");
-
 function getString(mem, ind, len) {
     let str = "";
     for (let i = 0; i < len; ++i) {
@@ -11,8 +9,8 @@ function getString(mem, ind, len) {
 
 export default class BestWeb {
     constructor(wasmFile) {
-	this.wasmFile = wasmFile;
-	this.functions = {};
+		this.wasmFile = wasmFile;
+		this.functions = {};
     }
 
     async init() {

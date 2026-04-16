@@ -27,11 +27,20 @@ It is preferable to build it on an **UNIX** or [**POSIX-compliant**](https://en.
 5. Terminal Emulator
 
 To run and install the repository locally, clone the Git repository, navigate to the local cloned repository directory.
-To change the contents on the website, edit the C file (`try.c`) and compile it with `run.py` (standalone "executable").
 
 ```shell
 $ git clone github.com/BestMat/BestWeb
 $ cd BestWeb
+```
+
+To change the contents on the website, edit the C file (`try.c`). Example:
+```c
+void _start() {
+    createElement("h1", ".c", "Hello World from C!", "body");
+    // createElement(const char *element, const char *selector, const char *content, const char *parent)
+    setStyle(".c", "color", "dodgerblue");
+    // setStyle(const char *element, const char *attribute, const char *style)
+}
 ```
 
 To compile `try.c` into `try.wasm` (WebAssembly Binary File), run:

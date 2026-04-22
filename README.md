@@ -13,7 +13,7 @@
 
 <br />
 <p align="justify">
-  Though the example provided in the repository (`try.c`) is a C file, any programming language that can be compiled to WASM can be used if the proper functions are implemented. Please note that the library/project is not fully developed.
+  Though the example provided in the repository (<code>try.c</code>) is a C file, any programming language that can be compiled to WASM can be used if the proper functions are implemented. Please note that the library/project is not fully developed.
 </p>
 
 ## Build and Run

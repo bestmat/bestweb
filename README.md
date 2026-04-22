@@ -10,8 +10,11 @@
     </div>
     <br clear="left" />
 </div>
-    
-Though the example provided in the repository (`try.c`) is a C file, any programming language that can be compiled to WASM can be used if the proper functions are implemented. Please note that the library/project is not fully developed.
+
+<br />
+<p align="justify">
+  Though the example provided in the repository (`try.c`) is a C file, any programming language that can be compiled to WASM can be used if the proper functions are implemented. Please note that the library/project is not fully developed.
+</p>
 
 ## Build and Run
 To view the result of the DOM Manipulation, please visit [BestWeb Page](https://bestmat.github.io/BestWeb).
